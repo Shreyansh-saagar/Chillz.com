@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login + signup</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>    
+    <div class="container">
+        <div class="forms-container">
+          <div class="signin-signup">
+
+            <form action="#" class="sign-in-form">
+              <h2 class="title">Sign in</h2>
+              <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input type="text" id="email" placeholder="Email" />
+              </div>
+              <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" placeholder="Password" />
+              </div>
+
+              <input type="submit" id="signin" value="Login" class="btn"/>
+              
+              <p class="social-text">Or Sign in with social platforms</p>
+              <div class="social-media">
+                <a href="#" class="social-icon">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-google"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </form>
+
+
+
+            <form action="#" class="sign-up-form">
+              <h2 class="title">Sign up</h2>
+              <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input type="text" id="username" placeholder="Username" />
+              </div>
+              <div class="input-field">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email1" placeholder="Email" />
+              </div>
+              <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password1" placeholder="Password" />
+              </div>
+              <input type="submit" id="signup" class="btn" value="Sign up" />
+              <p class="social-text">Or Sign up with social platforms</p>
+              <div class="social-media">
+                <a href="#" class="social-icon">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-google"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+  
+        <div class="panels-container">
+          <div class="panel left-panel">
+            <div class="content">
+              <h3>New to Chillz ?</h3>
+              <p>
+                Don't worry, we're with you.                 just one step away.
+              </p>
+              <button class="btn transparent" id="sign-up-btn">
+                Sign up
+              </button>
+            </div>
+            <img src="img/netfli2.svg" class="image" alt="" />
+          </div>
+          <div class="panel right-panel">
+            <div class="content">
+              <h3>One of us ?</h3>
+              <p>
+                What are you waiting for? SignIn to watch your favorites and chill.
+              </p>
+              <button class="btn transparent" id="sign-in-btn">
+                Sign in
+              </button>
+            </div>
+            <img src="img/netfly3.svg" class="image" alt="" />
+          </div>
+        </div>
+      </div>
+
+
+    <!-- SCRIPT FILE -->
+    <script src="scr1.js"></script>
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+</body>
+
+
+<!-- Restricted Zone -->
+<!-- FIREBASE AUTH SCRIPT -->
+<!-- remove comment and fill your data -->
+<!-- 
+<script type="module">
+
+
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+  import { getDatabase , set , ref, update } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "", //fill your api key here
+    authDomain: "", //fill your auth domain
+    databaseURL: "", //fill your database url
+    projectId: "", //fill your project id
+    storageBucket: "", //fill your storage Bucket
+    messagingSenderId: "", //fill your messaging Sender Id
+    appId: "" //fill your app id
+  };
+
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+  const auth = getAuth();
+
+
+       //----- New Registration code start	  
+       document.getElementById("signup").addEventListener("click", function() {
+		  var email =  document.getElementById("email1").value;
+		  var password = document.getElementById("password1").value;
+		  var username = document.getElementById("username").value;
+		  //For new registration
+		  createUserWithEmailAndPassword(auth, email, password)
+		  .then((userCredential) => {
+		    // Signed in 
+		    const user = userCredential.user;
+		    // console.log(user);
+            set(ref(database, 'users/' + user.uid),{
+                username: username,
+                email: email
+            })
+		    alert("Registration successfully!!");
+
+           
+		    // ...
+		  })
+		  .catch((error) => {
+		    const errorCode = error.code;
+		    const errorMessage = error.message;
+		    // ..
+		    console.log(errorMessage);
+		    alert('Error occured');
+		  });		  		  
+	  });
+    //----- End
+
+
+	  //----- Login code start	  
+	  document.getElementById("signin").addEventListener("click", function() {
+		  var email =  document.getElementById("email").value;
+		  var password = document.getElementById("password").value;
+
+		  signInWithEmailAndPassword(auth, email, password)
+		  .then((userCredential) => {
+		    // Signed in 
+		    const user = userCredential.user;
+
+            const dt = new Date();
+            update(ref(database, 'users/' + user.uid),{
+                last_login: dt,
+            })
+		    // console.log(user);
+		    // alert(user.email+" Login successfully!!!");
+		    // document.getElementById('logout').style.display = 'block';
+            //to change web page
+            window.location.href = "movie1.html";
+		    // ...
+		  })
+		  .catch((error) => {
+		    const errorCode = error.code;
+		    const errorMessage = error.message;
+		    console.log(errorMessage);
+            // alert(errorMessage)
+		    alert('Error Occured');
+		  });		  		  
+	  });
+	  //----- End
+
+
+    const user = auth.currentUser;
+    onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        // ...
+        //if we want any changes on screen after login or logout then we can code it here
+        
+    } else {
+        // User is signed out
+        // ...
+    }
+});
+  
+</script> -->
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="movie1.css">
+    <title>Chillz.com</title>
+</head>
+<body>
+    
+    <header>
+        <a  id="subscribe" href="subscription.html" ><ion-icon name="wallet-outline"></ion-icon></a>
+        <!-- logo -->
+        <h2 id="logo1"><a href="#">Chillz.com <ion-icon name="flame-outline"></ion-icon></a></h2>
+        <nav id="tags">
+
+        </nav>
+        
+        <form  id="form">
+            <input type="text" placeholder="Search" id="search" class="search">
+            <!-- <input type="password" id="password1" placeholder="Password" /> -->
+        </form>
+        <!-- logout button  -->
+        <a  id="logout" href="#"><ion-icon name="log-out-outline"></ion-icon></a>
+    </header>
+
+    <div class="banner"><img src="Chillz.png" alt=""></div>
+    <!--<div id="tags"></div>-->
+    <div id="myNav" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content" id="overlay-content"></div>
+        
+        <a href="javascript:void(0)" class="arrow left-arrow" id="left-arrow">&#8656;</a> 
+        
+        <a href="javascript:void(0)" class="arrow right-arrow" id="right-arrow" >&#8658;</a>
+
+      </div>
+    <main id="main"></main>
+    <div class="pagination">
+        <div class="page" id="prev">Previous Page</div>
+        <div class="current" id="current">1</div>
+        <div class="page" id="next">Next Page</div>
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h2>Chillz.com</h2>
+            <h4>At chillz, we want to entertain the world</h4>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt deleniti velit mollitia, magni nihil suscipit. Quisquam iste earum veniam cum quis atque? Aliquam, eaque expedita.</p>
+
+            <ul class="socials">
+                <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                <li><a href="#"><ion-icon name="mail-outline"></ion-icon></a></li>
+            </ul>
+
+            <h4 class="copy">All right Reserved © 2023 | chillz.com | Blackpink is a revolution </h4>
+
+        </div>
+
+    </footer>
+
+    <script src="movie1.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+
+<!-- Restricted Zone -->
+<!-- remove comment and fill your data -->
+<!-- <script type="module">
+
+
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+    import { getDatabase , set , ref, update } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+    apiKey: "", //fill your api key here
+    authDomain: "", //fill your auth domain
+    databaseURL: "", //fill your database url
+    projectId: "", //fill your project id
+    storageBucket: "", //fill your storage Bucket
+    messagingSenderId: "", //fill your messaging Sender Id
+    appId: "" //fill your app id
+  };
+
+
+      // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const auth = getAuth();
+
+
+    document.getElementById("logout").addEventListener('click',(e) => {
+        signOut(auth).then(() => {
+        // Sign-out successful.
+        // alert('logout success')
+        window.location.href = "login.html";
+        }).catch((error) => {
+        // An error happened.
+        const errorCode = error.code;
+            // const errorMessage = error.message;
+
+            alert('Error occured')
+
+        });
+
+});
+</script> -->
+
+</html>

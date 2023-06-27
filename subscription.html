@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription</title>
+    <link rel="stylesheet" href="movie1.css">
+    <link rel="stylesheet" href="subscription.css">
+</head>
+<body>
+    <header>
+        <a  id="subscribe" href="movie1.html" ><ion-icon name="arrow-back-outline"></ion-icon></a>
+        <!-- logo -->
+        <h2 id="logo1"><a href="#">Chillz.com <ion-icon name="flame-outline"></ion-icon></a></h2>
+    </header>
+    <div class="container">
+        <form action="" name="submit-to-google-sheet">
+            <h3>Fill Your Details</h3><br>
+			<form>
+				<br>
+
+                Username
+				<input type="text" name="username" placeholder="Username " required>
+				Email
+				<input type="text" name="email" placeholder="Enter email" required>
+                Country
+				<input type="text" name="country" placeholder="Country">
+
+                <div id="zip">
+					<label>
+						Choose your plan
+						<select name="plan" required>
+						<option>Choose Plan</option>
+						<option>Rs. 19 one-day plan</option>
+						<option>Rs. 39 one-day plan</option>
+						<option>Rs. 99 one-month plan</option>
+						<option>Rs. 299 one-month plan</option>
+						</select>
+					</label>
+				</div>
+                <br><br>
+                Accepted Card <br>
+				<img src="card1.png" width="100">
+				<img src="card2.png" width="50">
+                <br><br>
+                Payment Date (date and time)
+                <input type="datetime-local" name="date-time" required>
+                
+                card No.
+				<input type="number" name="cardno" placeholder="card No." required>
+                <br>
+                CVV
+                <input type="number" name="" placeholder="CVV" required>
+
+                <input type="submit" name="submit" value="Pay">
+        </form>
+    </div>
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+<!-- remove comment and fill data -->
+<!-- <script>
+	const scriptURL = '' //fill your google sheet url
+	const form = document.forms['submit-to-google-sheet']
+    // const mytimeout = setTimeout(window.location.href = "movie1.html",5000)
+	form.addEventListener('submit', e => {
+	  e.preventDefault()
+	  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+		.then(response => 
+            alert("payment successful",window.location.href = "movie1.html"),
+            // mytimeout
+			form.reset(),
+            
+		)
+		.catch(error => console.error('Error!', error.message))
+	})
+  </script> -->
+</html>
