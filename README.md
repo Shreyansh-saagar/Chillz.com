@@ -32,6 +32,8 @@ Chillz.com is a movie-streaming website built with HTML, CSS, and JavaScript. It
 <h3>Contributing</h3>
 Contributions are welcome! If you encounter any bugs or have suggestions for improvements, please open an issue or submit a pull request.
 
+<h3>License</h3>
+This project is licensed under the <b><u>MIT License</u></b>.
 
 
 
